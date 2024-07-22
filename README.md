@@ -14,9 +14,7 @@ docker logs kafka-kafka-1
 docker composse exec -it kafka-kafka-1 bash
 ```
 # Kafka CLI
-```sh
---bootstrap-server is a necesssary parameter to every kafka command.
-```
+> --bootstrap-server is a necesssary parameter to every kafka command.
 
 ## List topics
 ```sh
