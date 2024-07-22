@@ -60,7 +60,9 @@ kafka-console-consumer --bootstrap-server=localhost:9092 --topic=teste
 The name of a class to use for formatting kafka messages for display. (default: kafka.tools. DefaultMessageFormatter)
 
 ## Create producer
+```sh
 kafka-console-producer --bootstrap-server=localhost:9092 --topic=teste
+```
 
 Sending message
 ![alt text](image.png)
@@ -95,7 +97,7 @@ kafka-console-consumer --bootstrap-server=localhost:9092 --topic=teste --from-be
 ![alt text](image-3.png)
 
 ## Consumer Groups
-1 producer e 2 consumers
+### 1 producer e 2 consumers 
 
 ![alt text](image-5.png)
 
@@ -107,7 +109,7 @@ Quando um producer é criado, ele já cria 3 partições. Cada mensagem é envia
 
 Quando dois consumidores fazem parte de um mesmo grupo, cada um irá ler de uma partição diferente, logo não há possibilidade das mensagens serem lidas duas vezes.
 
-Dois consumers no mesmo grupo, lendo partições diferentes:
+### Dois consumers no mesmo grupo, lendo partições diferentes:
 ```sh
 kafka-console-consumer --bootstrap-server=localhost:9092 --topic=teste --group=x
 ```
