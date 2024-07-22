@@ -14,7 +14,9 @@ docker logs kafka-kafka-1
 docker composse exec -it kafka-kafka-1 bash
 ```
 # Kafka CLI
+```sh
 --bootstrap-server is a necesssary parameter to every kafka command.
+```
 
 ## List topics
 ```sh
@@ -52,11 +54,15 @@ Topic: teste    PartitionCount: 3       ReplicationFactor: 1    Configs:
 ```
 
 ## Create consumer
+```sh
 kafka-console-consumer --bootstrap-server=localhost:9092 --topic=teste 
---topic <String: topic>
---bootstrap-server <String: server to connect to>
---group <String: consumer group id>      The consumer group id of the consumer.
---from-beginning
+```
+
+- --topic <String: topic>
+- --bootstrap-server <String: server to connect to>
+- --group <String: consumer group id>  
+- --from-beginning
+
 The name of a class to use for formatting kafka messages for display. (default: kafka.tools. DefaultMessageFormatter)
 
 ## Create producer
