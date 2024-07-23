@@ -26,6 +26,11 @@ kafka-topics --list --bootstrap-server=localhost:9092
 kafka-topics --create --topic=teste --bootstrap-server=localhost:9092 --partitions=3
 ```
 
+Interacting as producer
+```sh
+kafka-console-producer --bootstrap-server=localhost:9092 --topic=teste
+```
+
 - --create
     - Create a new topic.
 
@@ -121,3 +126,15 @@ kafka-console-consumer --bootstrap-server=localhost:9092 --topic=teste --group=x
 ![alt text](image-8.png)
 
 Pode-se notar que o consumer 2 leu mais mensagen, logo ele deve estar lendo duas partições e o consumer 1 apenas uma partição.
+
+### Accessing a consumer group
+```sh
+kafka-consumer-groups --bootstrap-server=localhost:9092 --group=x --describe
+```
+
+- --describe
+  - Describe consumer group and list offset lag (number of messages not yet processed) related to given group.
+
+# Control center
+http://localhost:9021/
+
