@@ -13,7 +13,10 @@ docker compose exec -it kafka bash
 
 criar topics
 kafka-topics --create --topic=teste --bootstrap-server=localhost:9092 --partitions=3
+
+consumir topics
 kafka-console-consumer --bootstrap-server=localhost:9092 --topic=teste
+
 
 # Kafka Server
 1. Run docker compose
