@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"log"
 
 	"github.com/confluentinc/confluent-kafka-go/kafka"
@@ -10,11 +9,11 @@ import (
 func main() {
 	deliveryChan := make(chan kafka.Event)
 	producer := NewKafkaProducer()
-	Publish("Hello Kafka!", "teste", producer, nil, deliveryChan)
-
+	//  []byte("transferencia") - key, garante que as mensagens sempre chegarao na mesma partição
+	Publish("transferir", "teste", producer, []byte("transferencia2"), deliveryChan)
 	go DeliveryReport(deliveryChan) // async
+	producer.Flush(1000)
 
-	fmt.Println("Mensagem enviada com sucesso!")
 	// e := <-deliveryChan
 	// msg := e.(*kafka.Message)
 
@@ -23,7 +22,7 @@ func main() {
 	// } else {
 	// 	log.Println("Mensagem enviada: ", msg.TopicPartition)
 	// }
-	producer.Flush(1000)
+
 }
 
 func NewKafkaProducer() *kafka.Producer {
