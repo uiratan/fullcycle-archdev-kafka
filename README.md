@@ -1,3 +1,11 @@
+# Config /etc/hosts
+127.0.0.1       kubernetes.docker.internal docker.host.internal
+
+# Go app
+go mod init github.com/uiratan/fullcycle-archdev-kafka
+
+
+
 # Kafka Server
 1. Run docker compose
 ```sh
