@@ -7,6 +7,7 @@ go mod init github.com/uiratan/fullcycle-archdev-kafka
 entrar no container da app
 docker compose exec -it app bash
 go run cmd/producer/main.go
+go run cmd/consumer/main.go
 
 entrar no container do kafka
 docker compose exec -it kafka bash
@@ -17,6 +18,10 @@ kafka-topics --create --topic=teste --bootstrap-server=localhost:9092 --partitio
 consumir topics
 kafka-console-consumer --bootstrap-server=localhost:9092 --topic=teste
 
+consumer groups
+kafka-consumer-groups --bootstrap-server=localhost:9092 --describe --group=goapp-group
+
+![alt text](image.png)
 
 # Kafka Server
 1. Run docker compose
