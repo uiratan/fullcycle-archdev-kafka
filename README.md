@@ -4,7 +4,16 @@
 # Go app
 go mod init github.com/uiratan/fullcycle-archdev-kafka
 
+entrar no container da app
+docker compose exec -it app bash
+go run cmd/producer/main.go
 
+entrar no container do kafka
+docker compose exec -it kafka bash
+
+criar topics
+kafka-topics --create --topic=teste --bootstrap-server=localhost:9092 --partitions=3
+kafka-console-consumer --bootstrap-server=localhost:9092 --topic=teste
 
 # Kafka Server
 1. Run docker compose
